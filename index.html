@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>全国住房公积金公共服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 40px;
+            height: 40px;
+            background-color: #e74c3c;
+            margin-right: 10px;
+        }
+        
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .subtitle {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .more-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Balance Card */
+        .balance-card {
+            background: linear-gradient(135deg, #0262b6, #58b4ff);
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            position: relative;
+        }
+        
+        .balance-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .balance-title {
+            font-size: 16px;
+        }
+        
+        .eye-icon {
+            width: 20px;
+            height: 20px;
+            
+        }
+        
+        .balance-amount {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .status-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #52ff78;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .status-text {
+            font-size: 15px;
+        }
+        
+        .balance-details {
+           
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .detail-item {
+            flex: 1;
+            text-align: left;
+            padding: 10px;
+        }
+        
+        .detail-title {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .detail-value {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .detail-arrow {
+            font-size: 20px;
+            color: #fff;
+            margin-left: 15px;
+            margin-top: -3px;
+        }
+        
+        .detail-date {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        /* Services Section */
+        .section-title {
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            background-color: #1e88e5;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .services-container {
+            padding: 0 15px;
+        }
+        
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .service-item {
+            width: 19%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        
+        .service-icon-blue {
+            background-color: #1e88e5;
+        }
+        
+        .service-icon-teal {
+            background-color: #da4126;
+        }
+        
+        .service-icon-orange {
+            background-color: #ff9800;
+        }
+        
+        .service-icon-yellow {
+            background-color: #ffc107;
+        }
+        
+        .service-name {
+            font-size: 12px;
+        }
+        
+        /* City Service */
+        .city-service {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .city-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #42a5f5;
+            border-radius: 8px;
+            margin-right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        
+        .city-name {
+            flex: 1;
+        }
+        
+        .arrow-right {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Banner */
+        .banner {
+            margin: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 80px;
+            background-color: #ff5722;
+        }
+        
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            display: flex;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            margin: 0 auto 5px;
+            
+            border-radius: 4px;
+        }
+        
+        .nav-text {
+            font-size: 12px;
+        }
+        
+        .view-more {
+            text-align: right;
+            display: flex;
+            align-items: center;
+            color: #1e88e5;
+            font-size: 14px;
+        }
+        
+        /* Bottom system buttons */
+        .system-buttons {
+            position: fixed;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background-color: #fff;
+            border-top: 1px solid #eee;
+        }
+        
+        .system-button {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 480px) {
+            .service-item {
+                width: 48%;
+                margin-bottom: 15px;
+            }
+                       
+            
+            .detail-item {
+                margin-bottom: 20px;
+            }
+            
+            .balance-amount {
+                font-size: 28px;
+            }
+            
+            .title {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo"><img src="icon/gongjijin.jpeg" alt="" style="width: 40px;height: 40px;"></div>
+                <div>
+                    <div class="title">全国住房公积金公共服务</div>
+                    <div class="subtitle">助圆安居梦，惠及千万家！</div>
+                </div>
+            </div>
+    
+        </header>
+        
+        <div class="balance-card">
+            <div class="balance-header">
+                <div class="balance-title">
+                    <div>余额（元）<div class="eye-icon" style="float: right;"><img src="icon/eye.png" alt="" style="width: 20px;height: 20px;"></div></div>
+                    <div class="balance-amount">3618.12</div>
+                </div>
+                <div class="status-tag" style="margin-top: 15px;">
+                    <div class="status-dot"></div>
+                    <div class="status-text">正常缴纳</div>
+                </div>
+            </div>           
+            
+            
+            <div class="balance-details">
+                <div class="detail-item">
+                    <div class="detail-title">最近缴存（元）</div>
+                    <div class="detail-all" style="display: flex;">
+                        <div class="detail-value">719.04</div>
+                        <div class="detail-arrow">›</div>
+                    </div>
+                    
+                    <div class="detail-date">2025-02-20 缴存</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">最近提取（元）</div>
+                    <div class="detail-all" style="display: flex;">
+                        <div class="detail-value">0.00</div>
+                        <div class="detail-arrow">›</div>
+                    </div>
+                    
+                    <div class="detail-date">无提取</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">热门服务</div>
+        <div class="services-container">
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon service-icon-blue">
+                        <img src="icon/person-info.png" alt="" style="width: 35px;height: 35px;">
+                    </div>
+                    <div class="service-name">账户信息</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon service-icon-teal">
+                        <img src="icon/daikuan.png" alt="" style="width: 25px;height: 25px;">
+                    </div>
+                    <div class="service-name">贷款信息</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon service-icon-blue">
+                        <img src="icon/geshui.jpeg" alt="" style="width: 25px;height: 25px;">
+                    </div>
+                    <div class="service-name">个税抵扣<br>填报信息</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon service-icon-orange">
+                        <img src="icon/zhuanyi.png" alt="" style="width: 25px;height: 25px;">
+                    </div>
+                    <div class="service-name">转移接续</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon service-icon-yellow">
+                        <img src="icon/jiaocun.png" alt="" style="width: 25px;height: 25px;">
+                    </div>
+                    <div class="service-name">灵活缴存</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="city" style="display:flex;justify-content: space-between;">
+            <div class="section-title">城市服务</div>
+            <div class="view-more" style="margin-right: 30px;">查看更多 >></div>
+        </div>
+        
+        <div class="city-service">
+            <div class="city-icon">
+                <img src="icon/yuanqu.png" alt="" style="width: 25px;height: 25px;">
+            </div>
+            <div class="city-name">苏州工业园区中心</div>
+            <div class="arrow-right">
+                <img src="icon/rightarrow.png" alt="" style="width: 25px;height: 25px;">
+            </div>
+        </div>
+        
+        <div class="banner"></div>
+        
+        <div class="bottom-nav">
+            <div class="nav-item">
+                <div class="nav-icon">
+                    <img src="icon/main.png" alt="" style="width: 25px;height: 25px;">
+                </div>
+                <div class="nav-text">首页</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">
+                    <img src="icon/serve.png" alt="" style="width: 25px;height: 25px;">
+                </div>
+                <div class="nav-text">服务</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">
+                    <img src="icon/my.png" alt="" style="width: 25px;height: 25px;">
+                </div>
+                <div class="nav-text">我的</div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // JavaScript can be added here if needed
+        });
+    </script>
+</body>
+</html>
